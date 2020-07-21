@@ -1,0 +1,92 @@
+<script type="text/javascript">
+    RED.nodes.registerType('format_message', {
+        category: 'Processing Module',
+        color: '#ff0028',
+        defaults: {
+            name:{value:""},
+            // message_in: {value:"", required:true},
+            message_ref: {value:"", required:true},
+            message_target: {value:"", required:true},
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "PCS_Modular.svg",
+        label:  function() { return this.name?  "Format message - " + this.name: "Format message"},
+        paletteLabel: "Format message",
+    });
+</script>
+
+
+
+<style>
+    label{
+        width: 50% !important;
+        margin-bottom: 2px !important;
+    }
+
+    .columm{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    hr {
+    width: 40% !important;
+    float: left !important;
+    }
+
+    .hr-div-display-step{
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-top: 250px !important;
+    }
+
+    .optional{
+        height: max-content !important;
+        margin-top: 10px !important;
+    }
+
+    .descript{
+        text-align: center;
+    }
+</style>
+
+<script type="text/html" data-template-name="format_message">
+    <div class="form-row columm">
+        <strong class="descript">    
+            Take the message from a previous “Send Receive” and format the message in a desired format.
+        </strong>
+    </div>
+    <!-- <div class="form-row columm">
+		<label for="node-input-message_in" style="width: max-content; !important"><i class="fa fa-envelope"></i> message_in:</label>
+		<input type="text" id="node-input-message_in">
+	</div> -->
+    <div class="form-row columm">
+		<label for="node-input-message_ref" style="width: max-content; !important"><i class="fa fa-envelope"></i> Message_ref:</label>
+		<input type="text" id="node-input-message_ref">
+    </div>
+    <div class="form-row columm">
+		<label for="node-input-message_target" style="width: max-content; !important"><i class="fa fa-envelope"></i> message_target:</label>
+		<input type="text" id="node-input-message_target">
+	</div>
+    <!-- <div class="form-row columm node-input-step">
+        <label for="node-input-step"><i class="fa fa-random"></i> Step label </label>
+        <textarea style="width: 70%; !important" type="text" id="node-input-step"> </textarea >
+    </div>
+    <div class="form-row columm node-input-step_number">
+        <label for="node-input-step_number"><i class="fa fa-random"></i> Step number </label>
+        <input style="width: 20%; !important" type="number" min="1" id="node-input-step_number">
+    </div> -->
+    <div class="hr-div-display-step">
+        <hr>
+        <span class="optional">Optional</span>
+        <hr>
+    </div>
+    <div class="form-row columm">
+        <label style="width: 50% !important;" for="node-input-name" ><i class="fa fa-tag"></i> Component Nickname</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="format_message">
+    <p>Take the message from a previous “Send Receive” and format the message in a desired format. </p>
+</script>
