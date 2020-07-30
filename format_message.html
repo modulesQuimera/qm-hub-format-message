@@ -10,7 +10,7 @@
         },
         inputs: 1,
         outputs: 1,
-        icon: "PCS_Modular.svg",
+        icon: "CPU.svg",
         label:  function() { return this.name?  "Format message - " + this.name: "Format message"},
         paletteLabel: "Format message",
     });
@@ -20,7 +20,7 @@
 
 <style>
     label{
-        width: 50% !important;
+        width: 100% !important;
         margin-bottom: 2px !important;
     }
 
@@ -37,6 +37,48 @@
     .hr-div-display-step{
         display: flex !important;
         justify-content: space-between !important;
+        /* margin-top: 250px !important; */
+    }
+
+    .optional{
+        height: max-content !important;
+        margin-top: 10px !important;
+    }
+
+    .descript{
+        text-align: center;
+    }
+
+    .columm-50{
+        display: flex !important;
+        flex-direction: column !important;
+        width: 50% !important;
+        float: left !important;
+    }
+
+    .columm-30{
+        display: flex !important;
+        flex-direction: column !important;
+        width: 30% !important;
+        float: left !important;
+    }
+
+
+    .columm-70{
+        display: flex !important;
+        flex-direction: column !important;
+        width: 70% !important;
+        float: left !important;
+    }
+
+    hr {
+    width: 40% !important;
+    float: left !important;
+    }
+
+    .hr-div-get{
+        display: flex !important;
+        justify-content: space-between !important;
         margin-top: 250px !important;
     }
 
@@ -48,18 +90,58 @@
     .descript{
         text-align: center;
     }
+
+
+    .descript-div{
+        max-width: 444px !important;
+    }
+
+    span.red-ui-typedInput-type-label {
+    /* background: chartreuse; */
+    /* display: block; */
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+
+    .btn-aln{
+        display: flex !important;
+        flex-direction: row-reverse !important;
+        /* padding-left: 30px; */
+        align-content: center;
+        align-items: flex-end;
+    }
 </style>
 
 <script type="text/html" data-template-name="format_message">
-    <div class="form-row columm">
+    <div class="form-row columm descript-div">
         <strong class="descript">    
             Take the message from a previous “Send Receive” and format the message in a desired format.
         </strong>
     </div>
+    <div style=" position: relative; display:flex;">
+        <div class="form-row columm-70">
+            <label style="width: 50% !important;" for="node-input-name" ><i class="fa fa-tag"></i> Identification Note</label>
+            <input type="text" id="node-input-name" placeholder="Name" style="width: 100%">
+        </div>
+        <!-- <div class="form-row columm-30" style="align-items: flex-end !important;">
+            <label style="width: max-content !important; padding-right: 24px;"><i class="fa fa-list-ul"></i> Item</label>
+            <div class="form-row btn-aln" >
+                <a id="addSetPhase" class="red-ui-button" ><i class="fa fa-plus"></i></a>
+                <a id="remSetPhase" class="red-ui-button" style="margin-right: 5px;" ><i class="fa fa-minus"></i></a>
+            </div>
+        </div> -->
+    </div>
     <!-- <div class="form-row columm">
 		<label for="node-input-message_in" style="width: max-content; !important"><i class="fa fa-envelope"></i> message_in:</label>
 		<input type="text" id="node-input-message_in">
-	</div> -->
+    </div> -->
+    <div class="hr-div-display-step">
+        <hr>
+        <span class="optional">Message</span>
+        <hr>
+    </div>
     <div class="form-row columm">
 		<label for="node-input-message_ref" style="width: max-content; !important"><i class="fa fa-envelope"></i> Message_ref:</label>
 		<input type="text" id="node-input-message_ref">
@@ -76,7 +158,7 @@
         <label for="node-input-step_number"><i class="fa fa-random"></i> Step number </label>
         <input style="width: 20%; !important" type="number" min="1" id="node-input-step_number">
     </div> -->
-    <div class="hr-div-display-step">
+    <!-- <div class="hr-div-display-step">
         <hr>
         <span class="optional">Optional</span>
         <hr>
@@ -84,7 +166,7 @@
     <div class="form-row columm">
         <label style="width: 50% !important;" for="node-input-name" ><i class="fa fa-tag"></i> Component Nickname</label>
         <input type="text" id="node-input-name" placeholder="Name">
-    </div>
+    </div> -->
 </script>
 
 <script type="text/html" data-help-name="format_message">
